@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState } from 'react'; //import 'useState' hook from react
 import useTaskStore from '../store/useTaskStore';
 
 const TaskForm = () => {
-  const [text, setText] = useState('');
-  const addTask = useTaskStore(state => state.addTask);
+  const [text, setText] = useState(''); //manage local text change
+  const addTask = useTaskStore(state => state.addTask); //selector to get only the addTask action
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addTask({ id: Date.now(), title: text, completed: false });
+    addTask({ id: Date.now(), title: text, completed: false }); //Action call
     setText('');
   };
 

@@ -1,7 +1,12 @@
+import { useEffect } from 'react';
 import useTaskStore from '../store/useTaskStore';
 
 const TaskList = () => {
-  const { tasks, removeTask, toggleTask } = useTaskStore();
+  const { tasks, removeTask, toggleTask, fetchTasks } = useTaskStore();
+
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
 
   return (
     <div>
